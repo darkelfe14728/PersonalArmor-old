@@ -13,7 +13,7 @@ import net.minecraft.util.ResourceLocation;
  * The personal armor version of player inventory : identical except for armor slots.
  * Also add some buttons to interact with personal armor.
  */
-public class PlayerInventory
+public class PlayerInventoryGUI
     extends InventoryEffectRenderer
 {
     public static final ResourceLocation background =
@@ -22,7 +22,7 @@ public class PlayerInventory
     private int lookAt_x;
     private int lookAt_y;
     
-    public PlayerInventory (EntityPlayer player)
+    public PlayerInventoryGUI (EntityPlayer player)
     {
         super(player.inventoryContainer);
     }
