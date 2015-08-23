@@ -6,7 +6,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
 
-public class PAPlayer
+public class ExtendedProperties
 	implements IExtendedEntityProperties
 {
 	/**
@@ -19,14 +19,15 @@ public class PAPlayer
 	 * The entity witch extend properties.
 	 * This class apply to a player, so it's a player entity. 
 	 */
-	private final EntityPlayer player;
+	@SuppressWarnings("unused")
+    private final EntityPlayer player;
 	
 	/**
 	 * Create extended properties for the given player.
 	 * 
 	 * @param player The referenced player for the extended properties.
 	 */
-	public PAPlayer (EntityPlayer player)
+	public ExtendedProperties (EntityPlayer player)
 	{
 		this.player = player;
 	}
@@ -37,24 +38,24 @@ public class PAPlayer
 	}
 	
 	/**
-	 * Register {@link PAPlayer} has extended properties for the given player.
+	 * Register {@link ExtendedProperties} has extended properties for the given player.
 	 * 
 	 * @param player The player to extends.
 	 */
 	public static final void register (EntityPlayer player)
 	{
-		player.registerExtendedProperties(PAPlayer.PROP_NAME, new PAPlayer(player));
+		player.registerExtendedProperties(ExtendedProperties.PROP_NAME, new ExtendedProperties(player));
 	}
 	/**
-	 * Get the {@link PAPlayer} extended properties of the given player.
+	 * Get the {@link ExtendedProperties} extended properties of the given player.
 	 * 
 	 * @param player The extended player.
 	 * 
-	 * @return The {@link PAPlayer} extended properties.
+	 * @return The {@link ExtendedProperties} extended properties.
 	 */
-	public static final PAPlayer get (EntityPlayer player)
+	public static final ExtendedProperties get (EntityPlayer player)
 	{
-		return (PAPlayer)player.getExtendedProperties(PAPlayer.PROP_NAME);
+		return (ExtendedProperties)player.getExtendedProperties(ExtendedProperties.PROP_NAME);
 	}
 	
 	/**
@@ -67,7 +68,7 @@ public class PAPlayer
 	{
 		NBTTagCompound properties = new NBTTagCompound();
 		
-		compound.setTag(PAPlayer.PROP_NAME, properties);
+		compound.setTag(ExtendedProperties.PROP_NAME, properties);
 	}
 	/**
 	 * Load properties from player NBT tag.

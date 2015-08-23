@@ -1,11 +1,11 @@
 package personalarmor;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import personalarmor.proxy.CommonProxy;
-
-import net.minecraftforge.common.MinecraftForge;
-
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.SidedProxy;
@@ -48,6 +48,14 @@ public class PersonalArmor
 		)
 	public static CommonProxy proxy;
     
+	/**
+	 * List of modules.
+	 */
+	@SuppressWarnings("serial")
+    public static final Map<String, IModule> modules = new HashMap<String, IModule>() {{
+	    put("Player", null);
+	}};
+	
     /**
      * Function called before mod initialization.
      * 
@@ -64,6 +72,17 @@ public class PersonalArmor
         PersonalArmor.modMetadata.description = "A powerfull and modular armor";
         PersonalArmor.modMetadata.authorList = Arrays.asList(new String[] {"Julien Rosset"});
         PersonalArmor.modMetadata.credits = "";
+        
+        LogHelper.debug("Pre-Initialising sub-modules");
+        LogHelper.startBlock("Pre-Initialization");
+        for(Entry<String, IModule> module : modules.entrySet())
+        {
+            LogHelper.startBlock(module.getKey());
+                LogHelper.debug(module.getKey());
+                module.getValue().preInit(event);
+            LogHelper.stopBlock();
+        }
+        LogHelper.stopBlock();
     }
 
     /**
@@ -73,7 +92,18 @@ public class PersonalArmor
      */
     @Mod.EventHandler
     public void init (FMLInitializationEvent event)
-    {}
+    {
+        LogHelper.debug("Initialising sub-modules");
+        LogHelper.startBlock("Initialization");
+        for(Entry<String, IModule> module : modules.entrySet())
+        {
+            LogHelper.startBlock(module.getKey());
+                LogHelper.debug(module.getKey());
+                module.getValue().init(event);
+            LogHelper.stopBlock();
+        }
+        LogHelper.stopBlock();
+    }
     
     /**
      * Function called after mod initialization.
@@ -83,7 +113,15 @@ public class PersonalArmor
     @Mod.EventHandler
     public void postInit (FMLPostInitializationEvent event)
     {
-    	LogHelper.debug("Register event handler");
-    	MinecraftForge.EVENT_BUS.register(new PAHandler());
+        LogHelper.debug("Pre-Initialising sub-modules");
+        LogHelper.startBlock("Post-Initialization");
+        for(Entry<String, IModule> module : modules.entrySet())
+        {
+            LogHelper.startBlock(module.getKey());
+                LogHelper.debug(module.getKey());
+                module.getValue().postInit(event);
+            LogHelper.stopBlock();
+        }
+        LogHelper.stopBlock();
     }
 }

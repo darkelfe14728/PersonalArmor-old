@@ -1,5 +1,7 @@
 package personalarmor;
 
+import java.util.ArrayList;
+
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,8 +13,15 @@ import org.apache.logging.log4j.Logger;
  */
 public class LogHelper
 {
+    /**
+     * Instance of basic logging system.
+     */
     private static Logger logger = LogManager.getLogger("PersonalArmor");
-    
+    /**
+     * Array of opened blocks.
+     */
+    private static ArrayList<String> blocks = new ArrayList<String>();
+        
     /**
      * Log a message.
      * 
@@ -21,6 +30,9 @@ public class LogHelper
      */
     public static void log (Level level, String message)
     {
+        for(String block : blocks)
+            message = block + " : " + message;
+        
         logger.log(level, message);
     }
 
@@ -77,5 +89,14 @@ public class LogHelper
     public static void fatal (String message)
     {
         LogHelper.log(Level.FATAL, message);
+    }
+
+    public static void startBlock (String name)
+    {
+        blocks.add(name);
+    }
+    public static void stopBlock ()
+    {
+        blocks.remove(blocks.size() - 1);
     }
 }
