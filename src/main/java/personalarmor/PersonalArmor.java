@@ -12,6 +12,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 
 /**
  * @author Julien Rosset
@@ -48,6 +49,11 @@ public class PersonalArmor
 		)
 	public static CommonProxy proxy;
     
+	/**
+	 * Mod internal GUI id generator
+	 */
+	public static int _gui_generator = 0;
+	
 	/**
 	 * List of modules.
 	 */
@@ -113,7 +119,10 @@ public class PersonalArmor
     @Mod.EventHandler
     public void postInit (FMLPostInitializationEvent event)
     {
-        LogHelper.debug("Pre-Initialising sub-modules");
+        LogHelper.debug("Register GUI handler");
+        NetworkRegistry.INSTANCE.registerGuiHandler(this, new CommonProxy());
+        
+        LogHelper.debug("Post-Initialising sub-modules");
         LogHelper.startBlock("Post-Initialization");
         for(Entry<String, IModule> module : modules.entrySet())
         {

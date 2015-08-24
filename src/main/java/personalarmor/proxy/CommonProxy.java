@@ -1,5 +1,9 @@
 package personalarmor.proxy;
 
+import personalarmor.player.ExtendedPlayer;
+import personalarmor.player.PlayerModule;
+import personalarmor.player.inventory.ArmorContainer;
+import personalarmor.player.inventory.ArmorGui;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.network.IGuiHandler;
@@ -10,14 +14,20 @@ public class CommonProxy implements IGuiHandler
 	public void registerRenderers () {}
 	
 	@Override
-	public Object getServerGuiElement (int ID, EntityPlayer player, World world, int x, int y, int z)
+	public Object getServerGuiElement (int guiID, EntityPlayer player, World world, int x, int y, int z)
 	{
-		return null;
+	    if(guiID == PlayerModule.GUI_ARMOR)
+	        return new ArmorContainer(player, player.inventory, ExtendedPlayer.get(player).armorInventory);
+	    else
+	        return null;
 	}
 	@Override
-	public Object getClientGuiElement (int ID, EntityPlayer player, World world, int x, int y, int z)
+	public Object getClientGuiElement (int guiID, EntityPlayer player, World world, int x, int y, int z)
 	{
-		return null;
+	    if(guiID == PlayerModule.GUI_ARMOR)
+	        return new ArmorGui(player, player.inventory, ExtendedPlayer.get(player).armorInventory);
+	    else
+	        return null;
 	}
 
 	public EntityPlayer getEntityPlayer (MessageContext context)

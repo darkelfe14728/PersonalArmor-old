@@ -52,6 +52,4 @@ public class PacketDispatcher
 			AbstractBidirectionalMessageHandler.class.isAssignableFrom(handlerClass))
 				PacketDispatcher.dispatcher.registerMessage(handlerClass, messageClass, PacketDispatcher.packetID++, Side.SERVER);
 	}
-
-	
 }

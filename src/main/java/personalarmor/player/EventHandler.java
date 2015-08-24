@@ -13,7 +13,7 @@ public class EventHandler
 {
 	/**
 	 * Occurs when an entity is build.
-	 * Here, register {@link ExtendedProperties} has extended properties (for players only)
+	 * Here, register {@link ExtendedPlayer} has extended properties (for players only)
 	 */
 	@SubscribeEvent
 	public void onEntityConstructing (EntityConstructing event)
@@ -24,8 +24,8 @@ public class EventHandler
 			EntityPlayer player = (EntityPlayer)event.entity;
 			
 			// Only if player doesn't already have PersonalArmorPlayer properties
-			if(ExtendedProperties.get(player) == null)
-				ExtendedProperties.register(player);
+			if(ExtendedPlayer.get(player) == null)
+				ExtendedPlayer.register(player);
 		}
 	}
 }

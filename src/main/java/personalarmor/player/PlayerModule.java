@@ -6,6 +6,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import personalarmor.IModule;
 import personalarmor.LogHelper;
+import personalarmor.PersonalArmor;
 
 /**
  * @author soludev1
@@ -15,6 +16,8 @@ import personalarmor.LogHelper;
 public class PlayerModule
     implements IModule
 {
+    public static final int GUI_ARMOR = PersonalArmor._gui_generator++;
+    
     @Override
     public void preInit (FMLPreInitializationEvent event)
     {}
@@ -23,7 +26,7 @@ public class PlayerModule
     {}
     @Override
     public void postInit (FMLPostInitializationEvent event)
-    {
+    {        
         LogHelper.debug("Register event handler");
         MinecraftForge.EVENT_BUS.register(new EventHandler());
     }
