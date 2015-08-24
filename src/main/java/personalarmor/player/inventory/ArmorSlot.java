@@ -31,12 +31,12 @@ public class ArmorSlot
         super(inventory, index, xPos, yPos);
         this.type = type;
      
-        setBackgroundIconTexture(
+        /*setBackgroundIconTexture(
             new ResourceLocation(
                 PersonalArmor.modMetadata.modId,
                 "textures/gui/player/armor/" + type.getName().toLowerCase() + "/empty_slot.png"
             )
-        );
+        );*/
     }
     
     @Override
