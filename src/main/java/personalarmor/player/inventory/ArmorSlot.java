@@ -4,6 +4,7 @@ import personalarmor.PersonalArmor;
 import personalarmor.armor.part.IArmorPart;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
@@ -15,7 +16,7 @@ import net.minecraft.util.ResourceLocation;
 public class ArmorSlot
     extends Slot
 {
-    private Class<? extends IArmorPart> type;
+    private Class<? extends Item> type;
     
     /**
      * Create an armor slot
@@ -25,7 +26,7 @@ public class ArmorSlot
      * @param xPos      X position of slot
      * @param yPos      Y position of slot
      */
-    public ArmorSlot (Class<? extends IArmorPart> type, IInventory inventory, int index, int xPos, int yPos)
+    public ArmorSlot (Class<? extends Item> type, IInventory inventory, int index, int xPos, int yPos)
     {
         super(inventory, index, xPos, yPos);
         this.type = type;

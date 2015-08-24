@@ -12,7 +12,7 @@ import net.minecraft.nbt.NBTTagList;
  *
  * The "inventory" containing personal armor parts.
  */
-public class CustomInventory
+public class ArmorInventory
     implements IInventory
 {
     /**
@@ -97,9 +97,9 @@ public class CustomInventory
     /**
      * The underlined inventory.
      */
-    private ItemStack[] inventory = new ItemStack[CustomInventory.INVENTORY_SIZE];
+    private ItemStack[] inventory = new ItemStack[ArmorInventory.INVENTORY_SIZE];
  
-    public CustomInventory ()
+    public ArmorInventory ()
     {}
     
     @Override
@@ -194,40 +194,40 @@ public class CustomInventory
     {
         switch(slot)
         {
-            case CustomInventory.SLOT_HEAD:
+            case ArmorInventory.SLOT_HEAD:
                 return (stack.getItem() instanceof Item);
                 
-            case CustomInventory.SLOT_CHEST:
+            case ArmorInventory.SLOT_CHEST:
                 return (stack.getItem() instanceof Item);
                 
-            case CustomInventory.SLOT_BACK:
+            case ArmorInventory.SLOT_BACK:
                 return (stack.getItem() instanceof Item);
                 
-            case CustomInventory.SLOT_ARM_LEFT:
-            case CustomInventory.SLOT_ARM_RIGHT:
+            case ArmorInventory.SLOT_ARM_LEFT:
+            case ArmorInventory.SLOT_ARM_RIGHT:
                 return (stack.getItem() instanceof Item);
                 
-            case CustomInventory.SLOT_FOREARM_LEFT:
-            case CustomInventory.SLOT_FOREARM_RIGHT:
+            case ArmorInventory.SLOT_FOREARM_LEFT:
+            case ArmorInventory.SLOT_FOREARM_RIGHT:
                 return (stack.getItem() instanceof Item);
                 
-            case CustomInventory.SLOT_HAND_LEFT:
-            case CustomInventory.SLOT_HAND_RIGHT:
+            case ArmorInventory.SLOT_HAND_LEFT:
+            case ArmorInventory.SLOT_HAND_RIGHT:
                 return (stack.getItem() instanceof Item);
                 
-            case CustomInventory.SLOT_BELT:
+            case ArmorInventory.SLOT_BELT:
                 return (stack.getItem() instanceof Item);
                 
-            case CustomInventory.SLOT_LEG_UP_LEFT:
-            case CustomInventory.SLOT_LEG_UP_RIGHT:
+            case ArmorInventory.SLOT_LEG_UP_LEFT:
+            case ArmorInventory.SLOT_LEG_UP_RIGHT:
                 return (stack.getItem() instanceof Item);
                 
-            case CustomInventory.SLOT_LEG_DOWN_LEFT:
-            case CustomInventory.SLOT_LEG_DOWN_RIGHT:
+            case ArmorInventory.SLOT_LEG_DOWN_LEFT:
+            case ArmorInventory.SLOT_LEG_DOWN_RIGHT:
                 return (stack.getItem() instanceof Item);
                 
-            case CustomInventory.SLOT_FOOT_LEFT:
-            case CustomInventory.SLOT_FOOT_RIGHT:
+            case ArmorInventory.SLOT_FOOT_LEFT:
+            case ArmorInventory.SLOT_FOOT_RIGHT:
                 return (stack.getItem() instanceof Item);
         }
         
