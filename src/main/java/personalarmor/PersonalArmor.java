@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import personalarmor.network.PacketDispatcher;
+import personalarmor.network.server.PacketOpenServerGui;
 import personalarmor.proxy.CommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.ModMetadata;
@@ -121,6 +123,9 @@ public class PersonalArmor
     {
         LogHelper.debug("Register GUI handler");
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new CommonProxy());
+        
+        LogHelper.debug("Register GUI message");
+        PacketDispatcher.registerMessages(PacketOpenServerGui.class, PacketOpenServerGui.class);
         
         LogHelper.debug("Post-Initialising sub-modules");
         LogHelper.startBlock("Post-Initialization");
