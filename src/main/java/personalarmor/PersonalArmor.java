@@ -7,6 +7,7 @@ import java.util.Map.Entry;
 
 import personalarmor.network.PacketDispatcher;
 import personalarmor.network.server.PacketOpenServerGui;
+import personalarmor.player.PlayerModule;
 import personalarmor.proxy.CommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.ModMetadata;
@@ -60,8 +61,8 @@ public class PersonalArmor
 	 * List of modules.
 	 */
 	@SuppressWarnings("serial")
-    public static final Map<String, IModule> modules = new HashMap<String, IModule>() {{
-	    put("Player", null);
+    public static final Map<String, AbstractModule> modules = new HashMap<String, AbstractModule>() {{
+	    put("Player", new PlayerModule());
 	}};
 	
     /**
@@ -83,7 +84,7 @@ public class PersonalArmor
         
         LogHelper.debug("Pre-Initialising sub-modules");
         LogHelper.startBlock("Pre-Initialization");
-        for(Entry<String, IModule> module : modules.entrySet())
+        for(Entry<String, AbstractModule> module : modules.entrySet())
         {
             LogHelper.startBlock(module.getKey());
                 LogHelper.debug(module.getKey());
@@ -103,7 +104,7 @@ public class PersonalArmor
     {
         LogHelper.debug("Initialising sub-modules");
         LogHelper.startBlock("Initialization");
-        for(Entry<String, IModule> module : modules.entrySet())
+        for(Entry<String, AbstractModule> module : modules.entrySet())
         {
             LogHelper.startBlock(module.getKey());
                 LogHelper.debug(module.getKey());
@@ -129,7 +130,7 @@ public class PersonalArmor
         
         LogHelper.debug("Post-Initialising sub-modules");
         LogHelper.startBlock("Post-Initialization");
-        for(Entry<String, IModule> module : modules.entrySet())
+        for(Entry<String, AbstractModule> module : modules.entrySet())
         {
             LogHelper.startBlock(module.getKey());
                 LogHelper.debug(module.getKey());

@@ -9,9 +9,9 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
  *
  * Interface for mod modules entry point
  */
-public interface IModule
+public abstract class AbstractModule
 {
-    public void preInit (FMLPreInitializationEvent event);
-    public void init (FMLInitializationEvent event);
-    public void postInit (FMLPostInitializationEvent event);
+    public void preInit (FMLPreInitializationEvent event) {}
+    public void init (FMLInitializationEvent event) {}
+    public void postInit (FMLPostInitializationEvent event) {}
 }

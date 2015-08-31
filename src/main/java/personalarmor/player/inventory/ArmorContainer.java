@@ -1,6 +1,6 @@
 package personalarmor.player.inventory;
 
-import personalarmor.armor.part.*;
+//import personalarmor.armor.part.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;

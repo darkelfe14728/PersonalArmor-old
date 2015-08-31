@@ -4,7 +4,7 @@ import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import personalarmor.IModule;
+import personalarmor.AbstractModule;
 import personalarmor.LogHelper;
 import personalarmor.PersonalArmor;
 
@@ -14,7 +14,7 @@ import personalarmor.PersonalArmor;
  * Player sub-module entry point.
  */
 public class PlayerModule
-    implements IModule
+    extends AbstractModule
 {
     public static final int GUI_ARMOR = PersonalArmor._gui_generator++;
     
