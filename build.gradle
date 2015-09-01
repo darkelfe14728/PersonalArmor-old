@@ -18,12 +18,6 @@ buildscript {
 }
 
 apply plugin: "forge"
-	
-dependencies
-{
-	compile files("$projectDir/libs/TConstruct-1.7.10-1.8.3b.jar")
-	compile files("$projectDir/libs/OpenPeripheralCore-1.7.10-1.1.1.jar")
-}
 
 sourceSets
 {
@@ -34,6 +28,6 @@ sourceSets
 	}
 }
 
-archivesBaseName = "TiCPeripheral"
+archivesBaseName = "PersonalArmor"
 version = "0.0.1"
 minecraft.version = "1.7.10-10.13.2.1291"
