@@ -1,9 +1,9 @@
 package personalarmor.player;
 
 import net.minecraftforge.common.MinecraftForge;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import personalarmor.AbstractModule;
 import personalarmor.LogHelper;
 import personalarmor.PersonalArmor;
@@ -23,11 +23,12 @@ public class PlayerModule
     {}
     @Override
     public void init (FMLInitializationEvent event)
-    {}
+    {
+        LogHelper.info("Register event handler");
+        MinecraftForge.EVENT_BUS.register(new EventHandler());
+    }
     @Override
     public void postInit (FMLPostInitializationEvent event)
-    {        
-        LogHelper.debug("Register event handler");
-        MinecraftForge.EVENT_BUS.register(new EventHandler());
+    {
     }
 }

@@ -9,13 +9,13 @@ import personalarmor.network.PacketDispatcher;
 import personalarmor.network.server.PacketOpenServerGui;
 import personalarmor.player.PlayerModule;
 import personalarmor.proxy.CommonProxy;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.ModMetadata;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.ModMetadata;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 /**
  * @author Julien Rosset
@@ -73,7 +73,7 @@ public class PersonalArmor
     @Mod.EventHandler
     public void preInit (FMLPreInitializationEvent event)
     {
-    	LogHelper.debug("Initialising mod metadata");
+    	LogHelper.info("Initialising mod metadata");
         PersonalArmor.modMetadata = event.getModMetadata();
         PersonalArmor.modMetadata.modId = "personalarmor";
         PersonalArmor.modMetadata.name  = "PersonalArmor";
@@ -82,12 +82,12 @@ public class PersonalArmor
         PersonalArmor.modMetadata.authorList = Arrays.asList(new String[] {"Julien Rosset"});
         PersonalArmor.modMetadata.credits = "";
         
-        LogHelper.debug("Pre-Initialising sub-modules");
+        LogHelper.info("Pre-Initialising sub-modules");
         LogHelper.startBlock("Pre-Initialization");
         for(Entry<String, AbstractModule> module : modules.entrySet())
         {
             LogHelper.startBlock(module.getKey());
-                LogHelper.debug(module.getKey());
+                LogHelper.info(module.getKey());
                 module.getValue().preInit(event);
             LogHelper.stopBlock();
         }
@@ -102,12 +102,12 @@ public class PersonalArmor
     @Mod.EventHandler
     public void init (FMLInitializationEvent event)
     {
-        LogHelper.debug("Initialising sub-modules");
+        LogHelper.info("Initialising sub-modules");
         LogHelper.startBlock("Initialization");
         for(Entry<String, AbstractModule> module : modules.entrySet())
         {
             LogHelper.startBlock(module.getKey());
-                LogHelper.debug(module.getKey());
+                LogHelper.info(module.getKey());
                 module.getValue().init(event);
             LogHelper.stopBlock();
         }
@@ -122,18 +122,18 @@ public class PersonalArmor
     @Mod.EventHandler
     public void postInit (FMLPostInitializationEvent event)
     {
-        LogHelper.debug("Register GUI handler");
+        LogHelper.info("Register GUI handler");
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new CommonProxy());
         
-        LogHelper.debug("Register GUI message");
+        LogHelper.info("Register GUI message");
         PacketDispatcher.registerMessages(PacketOpenServerGui.class, PacketOpenServerGui.class);
         
-        LogHelper.debug("Post-Initialising sub-modules");
+        LogHelper.info("Post-Initialising sub-modules");
         LogHelper.startBlock("Post-Initialization");
         for(Entry<String, AbstractModule> module : modules.entrySet())
         {
             LogHelper.startBlock(module.getKey());
-                LogHelper.debug(module.getKey());
+                LogHelper.info(module.getKey());
                 module.getValue().postInit(event);
             LogHelper.stopBlock();
         }

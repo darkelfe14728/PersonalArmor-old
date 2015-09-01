@@ -1,16 +1,19 @@
 package personalarmor.player;
 
+import personalarmor.LogHelper;
 import personalarmor.network.PacketDispatcher;
 import personalarmor.network.server.PacketOpenServerGui;
 import personalarmor.player.inventory.ArmorContainer;
+import personalarmor.player.inventory.ArmorGui;
+import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.client.event.GuiScreenEvent;
 import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
-import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * @author soludev1
@@ -39,16 +42,42 @@ public class EventHandler
 	
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
-	public void guiPostAction (GuiScreenEvent.ActionPerformedEvent event)
+	public void onGuiOpen (GuiOpenEvent event)
 	{
-	    // Game is not focus ? => stop here
-	    if(!FMLClientHandler.instance().getClient().inGameHasFocus)
-	        return;
+	    LogHelper.info("GUI open event");
 	    
-	    EntityPlayer player = event.gui.mc.thePlayer;
-	    if(player.openContainer != null && player.openContainer instanceof ArmorContainer)
-	        player.closeScreen();                          // ArmorGui open => close it
-	    else
-	        PacketDispatcher.sendToPlayer(new PacketOpenServerGui(PlayerModule.GUI_ARMOR), (EntityPlayerMP)player);
+	    if(event.gui instanceof GuiInventory)
+	    {
+	        LogHelper.info("Standard Inventory GUI");
+            PacketDispatcher.sendToServer(new PacketOpenServerGui(PlayerModule.GUI_ARMOR));
+	    }
+	    /*else if(event.gui instanceof ArmorGui)
+	    {
+	        LogHelper.info("PersonalArmor Inventory GUI");
+	        
+	        EntityPlayer player = event.gui.mc.thePlayer;
+	        LogHelper.info("Involved player : " + player.getName());
+	        
+	        player.closeScreen();
+	    }*/
 	}
+	/*@SideOnly(Side.CLIENT)
+    @SubscribeEvent
+    public void guiPostAction (GuiScreenEvent.ActionPerformedEvent.Post event)
+    {
+        LogHelper.info("Post GUI action");
+        if(!(event.gui instanceof ArmorGui))
+        {
+            LogHelper.warn("Not a ArmorGUI");
+            return;
+        }
+        
+        EntityPlayer player = event.gui.mc.thePlayer;
+        LogHelper.info("Involved player : " + player.getName());
+        LogHelper.info("Must close ? " + (player.openContainer != null && player.openContainer instanceof ArmorContainer ? "Yes" : "No"));
+        if(player.openContainer != null && player.openContainer instanceof ArmorContainer)
+            player.closeScreen();                          // ArmorGui open => close it
+        else
+            PacketDispatcher.sendToPlayer(new PacketOpenServerGui(PlayerModule.GUI_ARMOR), (EntityPlayerMP)player);
+    }*/
 }

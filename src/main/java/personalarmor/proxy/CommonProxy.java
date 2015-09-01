@@ -1,13 +1,14 @@
 package personalarmor.proxy;
 
+import personalarmor.LogHelper;
 import personalarmor.player.ExtendedPlayer;
 import personalarmor.player.PlayerModule;
 import personalarmor.player.inventory.ArmorContainer;
 import personalarmor.player.inventory.ArmorGui;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
-import cpw.mods.fml.common.network.IGuiHandler;
-import cpw.mods.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.common.network.IGuiHandler;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 public class CommonProxy implements IGuiHandler
 {
@@ -16,6 +17,7 @@ public class CommonProxy implements IGuiHandler
 	@Override
 	public Object getServerGuiElement (int guiID, EntityPlayer player, World world, int x, int y, int z)
 	{
+	    LogHelper.info("getServerGuiElement : " + guiID + " - " + PlayerModule.GUI_ARMOR);
 	    if(guiID == PlayerModule.GUI_ARMOR)
 	        return new ArmorContainer(player, player.inventory, ExtendedPlayer.get(player).armorInventory);
 	    else

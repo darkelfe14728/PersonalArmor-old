@@ -1,11 +1,15 @@
 package personalarmor.player.inventory;
 
+import personalarmor.LogHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.IChatComponent;
 
 /**
  * @author soludev1
@@ -111,7 +115,11 @@ public class ArmorInventory
     @Override
     public ItemStack getStackInSlot (int slot)
     {
-        return this.inventory[slot];
+        LogHelper.info("Get slot " + slot);
+        ItemStack stack = this.inventory[slot];
+        
+        LogHelper.info("slot ok");
+        return stack;
     }
     @Override
     public ItemStack decrStackSize (int slot, int amount)
@@ -150,14 +158,19 @@ public class ArmorInventory
     }
 
     @Override
-    public String getInventoryName ()
+    public String getName ()
     {
         return this.name;
     }
     @Override
-    public boolean hasCustomInventoryName ()
+    public boolean hasCustomName ()
     {
         return this.name.length() > 0;
+    }
+    @Override
+    public IChatComponent getDisplayName ()
+    {
+        return new ChatComponentText(this.name);
     }
 
     @Override
@@ -181,13 +194,6 @@ public class ArmorInventory
     {
         return true;
     }
-
-    @Override
-    public void openInventory ()
-    {}
-    @Override
-    public void closeInventory ()
-    {}
 
     @Override
     public boolean isItemValidForSlot (int slot, ItemStack stack)
@@ -272,5 +278,37 @@ public class ArmorInventory
             if(slot >= 0 && slot < this.getSizeInventory())
                 this.setInventorySlotContents(slot, ItemStack.loadItemStackFromNBT(item));
         }
+    }
+
+    
+
+
+    @Override
+    public void openInventory (EntityPlayer player) {}
+
+    @Override
+    public void closeInventory (EntityPlayer player) {}
+
+    
+    @Override
+    public int getField (int id)
+    {
+        return 0;
+    }
+
+    @Override
+    public void setField (int id, int value){}
+
+    @Override
+    public int getFieldCount ()
+    {
+        return 0;
+    }
+
+    @Override
+    public void clear ()
+    {
+        for(int slot = 0; slot < inventory.length; slot++)
+            inventory[slot] = null;
     }
 }

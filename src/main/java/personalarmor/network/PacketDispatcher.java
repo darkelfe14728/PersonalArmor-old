@@ -6,10 +6,10 @@ import personalarmor.PersonalArmor;
 import personalarmor.network.bidirectional.AbstractBidirectionalMessageHandler;
 import personalarmor.network.client.AbstractClientMessageHandler;
 import personalarmor.network.server.AbstractServerMessageHandler;
-import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.network.simpleimpl.IMessage;
-import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
-import cpw.mods.fml.relauncher.Side;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraftforge.fml.relauncher.Side;
 
 /**
  * Helper class for packet registration and sending.
@@ -106,7 +106,7 @@ public class PacketDispatcher
 	{
 	    sendToAllAround(
 	        message,
-	        player.worldObj.provider.dimensionId, 
+	        player.worldObj.provider.getDimensionId(), 
 	        player.posX, 
 	        player.posY, 
 	        player.posZ, 

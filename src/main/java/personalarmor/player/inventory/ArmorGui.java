@@ -59,7 +59,7 @@ public class ArmorGui
         // Draw player entity
         int player_left = this.guiLeft + 105;
         int player_top  = this.guiTop  +  34;
-        GuiInventory.func_147046_a(
+        GuiInventory.drawEntityOnScreen(
             player_left,
             player_top,
             30,
