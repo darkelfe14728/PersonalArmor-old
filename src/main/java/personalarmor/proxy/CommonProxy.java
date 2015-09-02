@@ -1,6 +1,5 @@
 package personalarmor.proxy;
 
-import personalarmor.LogHelper;
 import personalarmor.player.ExtendedPlayer;
 import personalarmor.player.PlayerModule;
 import personalarmor.player.inventory.ArmorContainer;
@@ -17,7 +16,6 @@ public class CommonProxy implements IGuiHandler
 	@Override
 	public Object getServerGuiElement (int guiID, EntityPlayer player, World world, int x, int y, int z)
 	{
-	    LogHelper.info("getServerGuiElement : " + guiID + " - " + PlayerModule.GUI_ARMOR);
 	    if(guiID == PlayerModule.GUI_ARMOR)
 	        return new ArmorContainer(player, player.inventory, ExtendedPlayer.get(player).armorInventory);
 	    else

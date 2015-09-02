@@ -1,9 +1,7 @@
 package personalarmor.player.inventory;
 
-import personalarmor.LogHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -115,11 +113,7 @@ public class ArmorInventory
     @Override
     public ItemStack getStackInSlot (int slot)
     {
-        LogHelper.info("Get slot " + slot);
-        ItemStack stack = this.inventory[slot];
-        
-        LogHelper.info("slot ok");
-        return stack;
+        return this.inventory[slot];
     }
     @Override
     public ItemStack decrStackSize (int slot, int amount)

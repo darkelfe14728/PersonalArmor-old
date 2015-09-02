@@ -1,0 +1,17 @@
+[
+	{
+		"modid": "personalarmor",
+		"name": "PersonalArmor",
+		"description": "A powerful and modular armor",
+		"version": "${version}",
+		"mcversion": "${mcversion}",
+		"logoFile": "",
+		"url": "",
+		"updateUrl": "",
+		"authorList": ["Julien Rosset"],
+		"credits": "",
+		"parent": "",
+		"screenshots": [],
+		"dependencies": []
+	}
+]

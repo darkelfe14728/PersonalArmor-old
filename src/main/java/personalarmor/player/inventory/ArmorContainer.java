@@ -24,7 +24,7 @@ public class ArmorContainer
     /**
      * Number of line in standard inventory.
      */
-    private static final int INV_LINE    = 4;
+    private static final int INV_LINE    = 3;
     /**
      * Number of slot in standard inventory.
      */
@@ -67,7 +67,7 @@ public class ArmorContainer
      * Initialize slots.
      */
     public ArmorContainer (EntityPlayer player, InventoryPlayer playerInventory, ArmorInventory armorInventory)
-    {
+    {        
         // Slots about armor (armor inventory)
         this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_HEAD          , 38,   7));
         this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_CHEST         , 38,  25));
@@ -85,7 +85,7 @@ public class ArmorContainer
         this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_LEG_DOWN_RIGHT, 56,  97));
         this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_FOOT_LEFT     , 38, 115));
         this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_FOOT_RIGHT    , 56, 115));
-        
+               
         // Slots about standard inventory (except armor slots)
             // Inventory slots
         for(int line = 0; line < INV_LINE; line++)
@@ -94,7 +94,7 @@ public class ArmorContainer
             {
                 this.addSlotToContainer(new Slot(
                     playerInventory,
-                    ArmorInventory.INVENTORY_SIZE + line * 9 + column,
+                    line * 9 + column + HOTBAR_SIZE,
                     7 + column * 18, 
                     138 + line * 18
                  ));
@@ -107,7 +107,7 @@ public class ArmorContainer
             {
                 this.addSlotToContainer(new Slot(
                     playerInventory,
-                    ArmorInventory.INVENTORY_SIZE + INV_SIZE + 9 * 4,
+                    line * 9 + column,
                     7 + column * 18,
                     196 + line * 18
                 ));

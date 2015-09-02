@@ -45,7 +45,7 @@ public class EventHandler
 	public void onGuiOpen (GuiOpenEvent event)
 	{
 	    LogHelper.info("GUI open event");
-	    
+	    	    
 	    if(event.gui instanceof GuiInventory)
 	    {
 	        LogHelper.info("Standard Inventory GUI");

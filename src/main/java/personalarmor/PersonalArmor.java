@@ -78,7 +78,7 @@ public class PersonalArmor
         PersonalArmor.modMetadata.modId = "personalarmor";
         PersonalArmor.modMetadata.name  = "PersonalArmor";
         PersonalArmor.modMetadata.version = "0.0.1";
-        PersonalArmor.modMetadata.description = "A powerfull and modular armor";
+        PersonalArmor.modMetadata.description = "A powerful and modular armor";
         PersonalArmor.modMetadata.authorList = Arrays.asList(new String[] {"Julien Rosset"});
         PersonalArmor.modMetadata.credits = "";
         
