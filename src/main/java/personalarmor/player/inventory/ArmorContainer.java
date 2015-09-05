@@ -69,22 +69,22 @@ public class ArmorContainer
     public ArmorContainer (EntityPlayer player, InventoryPlayer playerInventory, ArmorInventory armorInventory)
     {        
         // Slots about armor (armor inventory)
-        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_HEAD          , 38,   7));
-        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_CHEST         , 38,  25));
-        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_BACK          , 56,  25));
-        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_ARM_LEFT      , 20,  25));
-        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_ARM_RIGHT     , 74,  25));
-        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_FOREARM_LEFT  , 20,  43));
-        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_FOREARM_RIGHT , 74,  43));
-        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_HAND_LEFT     , 20,  61));
-        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_HAND_RIGHT    , 74,  61));
-        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_BELT          , 38,  61));
-        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_LEG_UP_LEFT   , 38,  79));
-        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_LEG_UP_RIGHT  , 56,  79));
-        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_LEG_DOWN_LEFT , 38,  97));
-        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_LEG_DOWN_RIGHT, 56,  97));
-        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_FOOT_LEFT     , 38, 115));
-        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_FOOT_RIGHT    , 56, 115));
+        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_HEAD          , 39,   8));
+        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_CHEST         , 39,  26));
+        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_BACK          , 57,  26));
+        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_ARM_LEFT      , 21,  26));
+        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_ARM_RIGHT     , 75,  26));
+        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_FOREARM_LEFT  , 21,  44));
+        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_FOREARM_RIGHT , 75,  44));
+        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_HAND_LEFT     , 21,  62));
+        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_HAND_RIGHT    , 75,  62));
+        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_BELT          , 39,  62));
+        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_LEG_UP_LEFT   , 39,  80));
+        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_LEG_UP_RIGHT  , 57,  80));
+        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_LEG_DOWN_LEFT , 39,  98));
+        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_LEG_DOWN_RIGHT, 57,  98));
+        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_FOOT_LEFT     , 39, 116));
+        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_FOOT_RIGHT    , 57, 116));
                
         // Slots about standard inventory (except armor slots)
             // Inventory slots
@@ -95,8 +95,8 @@ public class ArmorContainer
                 this.addSlotToContainer(new Slot(
                     playerInventory,
                     line * 9 + column + HOTBAR_SIZE,
-                    7 + column * 18, 
-                    138 + line * 18
+                    7 + column * 18 + 1, 
+                    138 + line * 18 + 1
                  ));
             }
         }
@@ -108,8 +108,8 @@ public class ArmorContainer
                 this.addSlotToContainer(new Slot(
                     playerInventory,
                     line * 9 + column,
-                    7 + column * 18,
-                    196 + line * 18
+                    7 + column * 18 + 1,
+                    196 + line * 18 + 1
                 ));
             }
         }

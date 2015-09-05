@@ -40,6 +40,10 @@ public class ArmorGui
     public void initGui()
     {
         this.buttonList.clear();
+        
+        this.xSize = 176;
+        this.ySize = 222;
+        
         super.initGui();
     }
     
