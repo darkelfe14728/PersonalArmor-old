@@ -61,8 +61,8 @@ public class ArmorGui
         this.drawTexturedModalRect(this.guiLeft, this.guiTop, 0, 0, this.xSize, this.ySize);
         
         // Draw player entity
-        int player_left = this.guiLeft + 105;
-        int player_top  = this.guiTop  +  34;
+        int player_left = this.guiLeft + 106;
+        int player_top  = this.guiTop  +  35;
         GuiInventory.drawEntityOnScreen(
             player_left,
             player_top,

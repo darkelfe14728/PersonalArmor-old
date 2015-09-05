@@ -69,16 +69,16 @@ public class ArmorContainer
     public ArmorContainer (EntityPlayer player, InventoryPlayer playerInventory, ArmorInventory armorInventory)
     {        
         // Slots about armor (armor inventory)
-        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_HEAD          , 39,   8));
-        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_CHEST         , 39,  26));
-        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_BACK          , 57,  26));
+        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_HEAD          , 48,   8));
+        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_CHEST         , 39,  35));
+        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_BACK          , 57,  35));
         this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_ARM_LEFT      , 21,  26));
         this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_ARM_RIGHT     , 75,  26));
         this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_FOREARM_LEFT  , 21,  44));
         this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_FOREARM_RIGHT , 75,  44));
         this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_HAND_LEFT     , 21,  62));
         this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_HAND_RIGHT    , 75,  62));
-        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_BELT          , 39,  62));
+        this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_BELT          , 48,  62));
         this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_LEG_UP_LEFT   , 39,  80));
         this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_LEG_UP_RIGHT  , 57,  80));
         this.addSlotToContainer(new ArmorSlot(Item.class, armorInventory, ArmorInventory.SLOT_LEG_DOWN_LEFT , 39,  98));
