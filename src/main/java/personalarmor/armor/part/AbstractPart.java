@@ -6,9 +6,9 @@ package personalarmor.armor.part;
 import personalarmor.material.IMaterial;
 
 /**
- * @author soludev1
- *
  * Abstract armor part
+ *
+ * @author soludev1
  */
 public abstract class AbstractPart
     implements IPart

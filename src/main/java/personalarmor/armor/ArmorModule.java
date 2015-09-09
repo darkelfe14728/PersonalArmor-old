@@ -11,7 +11,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import personalarmor.AbstractModule;
 import personalarmor.LogHelper;
-import personalarmor.armor.part.Chest;
 
 /**
  * Armor sub-module.
@@ -33,7 +32,7 @@ public class ArmorModule
     static {
         tabs.put("armor", new ArmorTab());
         
-        items.put("", new ArmorItem<Chest>(null));
+        //items.put("", new ArmorItem<Chest>(new Chest(new Wood())));
     }
     
     @Override
