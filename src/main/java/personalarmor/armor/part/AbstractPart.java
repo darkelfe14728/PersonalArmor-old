@@ -23,6 +23,9 @@ public abstract class AbstractPart
         this.material = material;
     }
     
+    /**
+     * @return Armor part material.
+     */
     public IMaterial getMaterial ()
     {
         return material;
@@ -33,7 +36,7 @@ public abstract class AbstractPart
      * 
      * @return Base points.
      */
-    public abstract float getBasePoint ();
+    protected abstract float getBasePoint ();
     @Override
     public float getSpace  ()
     {
