@@ -5,10 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import personalarmor.network.PacketDispatcher;
-import personalarmor.network.server.PacketOpenServerGui;
-import personalarmor.player.PlayerModule;
-import personalarmor.proxy.CommonProxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.ModMetadata;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -16,6 +12,10 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import personalarmor.network.PacketDispatcher;
+import personalarmor.network.server.PacketOpenServerGui;
+import personalarmor.player.PlayerModule;
+import personalarmor.proxy.CommonProxy;
 
 /**
  * @author Julien Rosset

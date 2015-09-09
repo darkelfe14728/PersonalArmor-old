@@ -2,7 +2,7 @@ package personalarmor.armor.part;
 
 /**
  * A generic armor part.
- * 
+ *
  * @author soludev1
  */
 public interface IPart
@@ -10,7 +10,7 @@ public interface IPart
     /**
      * @return Get available space.
      */
-    public float getSpace  ();
+    public float getSpace ();
     /**
      * @return Get available energy.
      */
@@ -19,4 +19,9 @@ public interface IPart
      * @return Get available weight.
      */
     public float getWeight ();
+
+    /**
+     * @return Unlocalized name.
+     */
+    public String getUnlocalizedName ();
 }

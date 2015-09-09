@@ -52,4 +52,10 @@ public abstract class AbstractPart
     {
         return getBasePoint() * material.getFactorWeight();
     }
+
+    @Override
+    public String getUnlocalizedName ()
+    {
+        return this.getClass().getName().toLowerCase() + "." + material.getUnlocalizedName();
+    }
 }
