@@ -2,8 +2,8 @@ package personalarmor.player.inventory;
 
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import personalarmor.armor.part.IPart;
 
 /**
  * @author soludev1
@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 public class ArmorSlot
     extends Slot
 {
-    private Class<? extends Item> type;
+    private Class<? extends IPart> type;
     
     /**
      * Create an armor slot
@@ -23,7 +23,7 @@ public class ArmorSlot
      * @param xPos      X position of slot
      * @param yPos      Y position of slot
      */
-    public ArmorSlot (Class<? extends Item> type, IInventory inventory, int index, int xPos, int yPos)
+    public ArmorSlot (Class<? extends IPart> type, IInventory inventory, int index, int xPos, int yPos)
     {
         super(inventory, index, xPos, yPos);
         this.type = type;
