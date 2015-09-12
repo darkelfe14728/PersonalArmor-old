@@ -1,11 +1,11 @@
 package personalarmor.player.inventory;
 
-import personalarmor.PersonalArmor;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.client.renderer.InventoryEffectRenderer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
+import personalarmor.PersonalArmor;
 
 /**
  * @author soludev1
@@ -20,7 +20,7 @@ public class ArmorGui
      * Background image location.
      */
     public static final ResourceLocation background =
-                    new ResourceLocation(PersonalArmor.modMetadata.modId, "textures/gui/player/inventory_armor.png");
+                    new ResourceLocation(PersonalArmor.MODID, "textures/gui/player/inventory_armor.png");
         
     /**
      * Cursor position (X), here the player look point.

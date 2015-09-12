@@ -4,6 +4,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import personalarmor.IShapedCrafting;
+import personalarmor.PersonalArmor;
 import personalarmor.armor.part.IPart;
 import personalarmor.armor.part.IPart.ShapedRecipe;
 
@@ -24,7 +25,7 @@ public class ArmorItem<TPart extends IPart>
 
         this.setMaxStackSize(1);
         this.setCreativeTab(ArmorModule.tabs.get("armor"));
-        this.setUnlocalizedName("armor." + part.getUnlocalizedName());
+        this.setUnlocalizedName(PersonalArmor.MODID + ".armor." + part.getUnlocalizedName());
     }
 
     @Override

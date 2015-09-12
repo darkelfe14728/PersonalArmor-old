@@ -2,14 +2,14 @@ package personalarmor.network;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import personalarmor.PersonalArmor;
-import personalarmor.network.bidirectional.AbstractBidirectionalMessageHandler;
-import personalarmor.network.client.AbstractClientMessageHandler;
-import personalarmor.network.server.AbstractServerMessageHandler;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
+import personalarmor.PersonalArmor;
+import personalarmor.network.bidirectional.AbstractBidirectionalMessageHandler;
+import personalarmor.network.client.AbstractClientMessageHandler;
+import personalarmor.network.server.AbstractServerMessageHandler;
 
 /**
  * Helper class for packet registration and sending.
@@ -28,7 +28,7 @@ public class PacketDispatcher
 	 * Hidden from external because we don't need us directly.
 	 */
 	private static final SimpleNetworkWrapper dispatcher =
-		NetworkRegistry.INSTANCE.newSimpleChannel(PersonalArmor.modMetadata.modId);
+		NetworkRegistry.INSTANCE.newSimpleChannel(PersonalArmor.MODID);
 	
 	/**
 	 * Register the message handler.

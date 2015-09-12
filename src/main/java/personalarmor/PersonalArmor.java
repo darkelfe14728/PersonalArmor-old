@@ -27,21 +27,18 @@ import personalarmor.proxy.CommonProxy;
      name                      = "PersonalArmor",
      version                   = "0.0.1",
      dependencies              = "required-after:Forge@[10.13.2.1291,)",
-     acceptedMinecraftVersions = "[1.7.10,)",
+     acceptedMinecraftVersions = "[1.8,)",
      canBeDeactivated          = true
 )
 public class PersonalArmor
 {
+    public static final String MODID = "personalarmor";
+    
 	/**
 	 * Mod instance.
 	 */
 	@Mod.Instance("personalarmor")
 	public static PersonalArmor instance = new PersonalArmor();
-	/**
-     * Mod metadata.
-     */
-	@Mod.Metadata("personalarmor")
-    public static ModMetadata modMetadata;
 	
 	/**
 	 * Proxy instantiation.
@@ -76,13 +73,13 @@ public class PersonalArmor
     public void preInit (FMLPreInitializationEvent event)
     {
     	LogHelper.info("Initialising mod metadata");
-        PersonalArmor.modMetadata = event.getModMetadata();
-        PersonalArmor.modMetadata.modId = "personalarmor";
-        PersonalArmor.modMetadata.name  = "PersonalArmor";
-        PersonalArmor.modMetadata.version = "0.0.1";
-        PersonalArmor.modMetadata.description = "A powerful and modular armor";
-        PersonalArmor.modMetadata.authorList = Arrays.asList(new String[] {"Julien Rosset"});
-        PersonalArmor.modMetadata.credits = "";
+    	ModMetadata metadata = event.getModMetadata();
+    	metadata.modId = MODID;
+    	metadata.name  = "PersonalArmor";
+    	metadata.version = "0.0.1";
+    	metadata.description = "A powerful and modular armor";
+    	metadata.authorList = Arrays.asList(new String[] {"Julien Rosset"});
+    	metadata.credits = "";
         
         LogHelper.info("Pre-Initialising " + modules.size() + " sub-modules");
         LogHelper.startBlock("Pre-Initialization");

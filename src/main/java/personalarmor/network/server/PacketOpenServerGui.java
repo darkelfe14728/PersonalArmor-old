@@ -1,10 +1,10 @@
 package personalarmor.network.server;
 
-import personalarmor.PersonalArmor;
-import net.minecraft.entity.player.EntityPlayer;
 import io.netty.buffer.ByteBuf;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import personalarmor.PersonalArmor;
 
 public class PacketOpenServerGui
     extends AbstractServerMessageHandler<PacketOpenServerGui>
@@ -36,7 +36,7 @@ public class PacketOpenServerGui
     public IMessage handleServerMessage (EntityPlayer player, PacketOpenServerGui message, MessageContext context)
     {
         player.openGui(
-            PersonalArmor.modMetadata.modId, 
+            PersonalArmor.MODID, 
             message.gui_id, 
             player.worldObj, 
             (int)player.posX, 
