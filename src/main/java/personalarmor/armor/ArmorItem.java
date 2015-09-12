@@ -37,7 +37,7 @@ public class ArmorItem<TPart extends IPart>
             GameRegistry.addShapedRecipe(
                 new ItemStack(this, recipe.getAmount()),
                 recipe.getModel(),
-                "1", materials[0]
+                '1', materials[0]
             );
         }
     }

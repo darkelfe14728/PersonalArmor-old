@@ -2,7 +2,6 @@ package personalarmor;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Map.Entry;
 
 import net.minecraftforge.fml.common.Mod;
@@ -12,6 +11,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import personalarmor.armor.ArmorModule;
 import personalarmor.network.PacketDispatcher;
 import personalarmor.network.server.PacketOpenServerGui;
 import personalarmor.player.PlayerModule;
@@ -60,10 +60,12 @@ public class PersonalArmor
 	/**
 	 * List of modules.
 	 */
-	@SuppressWarnings("serial")
-    public static final Map<String, AbstractModule> modules = new HashMap<String, AbstractModule>() {{
-	    put("Player", new PlayerModule());
-	}};
+    public static final HashMap<String, AbstractModule> modules = new HashMap<String, AbstractModule>();
+	
+	static {
+	    modules.put("Player", new PlayerModule());
+	    modules.put("Armor" , new ArmorModule());
+	}
 	
     /**
      * Function called before mod initialization.
@@ -82,7 +84,7 @@ public class PersonalArmor
         PersonalArmor.modMetadata.authorList = Arrays.asList(new String[] {"Julien Rosset"});
         PersonalArmor.modMetadata.credits = "";
         
-        LogHelper.info("Pre-Initialising sub-modules");
+        LogHelper.info("Pre-Initialising " + modules.size() + " sub-modules");
         LogHelper.startBlock("Pre-Initialization");
         for(Entry<String, AbstractModule> module : modules.entrySet())
         {
@@ -102,7 +104,7 @@ public class PersonalArmor
     @Mod.EventHandler
     public void init (FMLInitializationEvent event)
     {
-        LogHelper.info("Initialising sub-modules");
+        LogHelper.info("Initialising " + modules.size() + " sub-modules");
         LogHelper.startBlock("Initialization");
         for(Entry<String, AbstractModule> module : modules.entrySet())
         {
@@ -128,7 +130,7 @@ public class PersonalArmor
         LogHelper.info("Register GUI message");
         PacketDispatcher.registerMessages(PacketOpenServerGui.class, PacketOpenServerGui.class);
         
-        LogHelper.info("Post-Initialising sub-modules");
+        LogHelper.info("Post-Initialising " + modules.size() + " sub-modules");
         LogHelper.startBlock("Post-Initialization");
         for(Entry<String, AbstractModule> module : modules.entrySet())
         {

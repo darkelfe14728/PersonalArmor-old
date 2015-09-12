@@ -29,16 +29,22 @@ public class ArmorModule
     extends AbstractModule
 {
     /**
-     * Creative tabs;
+     * List of creative tabs;
      */
-    public static HashMap<String, CreativeTabs> tabs = new HashMap<String, CreativeTabs>();
+    public static final HashMap<String, CreativeTabs> tabs = new HashMap<String, CreativeTabs>();
     /**
-     * Items.
+     * List of items.
      */
-    public static HashMap<String, Item> items = new HashMap<String, Item>(); 
+    public static final HashMap<String, Item> items = new HashMap<String, Item>(); 
 
-    public static ArrayList<Class<? extends IPart>> parts = new ArrayList<Class<? extends IPart>>();
-    public static ArrayList<IMaterial> materials = new ArrayList<IMaterial>();
+    /**
+     * List of armor parts.
+     */
+    public static final ArrayList<Class<? extends IPart>> parts = new ArrayList<Class<? extends IPart>>();
+    /**
+     * List of materials.
+     */
+    public static final ArrayList<IMaterial> materials = new ArrayList<IMaterial>();
     
     static {
         // Tabs
@@ -75,18 +81,20 @@ public class ArmorModule
     @Override
     public void preInit (FMLPreInitializationEvent event)
     {
-        LogHelper.info(items.size() + " items");
+        LogHelper.info("Register " + items.size() + " items");
+        for(Entry<String, Item> item : items.entrySet())
+            GameRegistry.registerItem(item.getValue(), item.getKey());
+    }
+    @Override
+    public void init (FMLInitializationEvent event)
+    {
+        LogHelper.info("Register shaped recipes");
         for(Entry<String, Item> item : items.entrySet())
         {
-            GameRegistry.registerItem(item.getValue(), item.getKey());
-            
             if(item.getValue() instanceof IShapedCrafting)
                 ((IShapedCrafting)item.getValue()).registerShapedRecipes();
         }
     }
-    @Override
-    public void init (FMLInitializationEvent event)
-    {}
     @Override
     public void postInit (FMLPostInitializationEvent event)
     {}
