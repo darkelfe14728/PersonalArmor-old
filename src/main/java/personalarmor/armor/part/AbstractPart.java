@@ -54,6 +54,6 @@ public abstract class AbstractPart
     @Override
     public String getUnlocalizedName ()
     {
-        return this.getClass().getName().toLowerCase() + "." + material.getUnlocalizedName();
+        return this.getClass().getSimpleName().toLowerCase() + "." + material.getUnlocalizedName();
     }
 }

@@ -31,7 +31,7 @@ public class ArmorSlot
         /*setBackgroundIconTexture(
             new ResourceLocation(
                 PersonalArmor.modMetadata.modId,
-                "textures/gui/player/armor/" + type.getName().toLowerCase() + "/empty_slot.png"
+                "textures/gui/player/armor/" + type.getSimpleName().toLowerCase() + "/empty_slot.png"
             )
         );*/
     }

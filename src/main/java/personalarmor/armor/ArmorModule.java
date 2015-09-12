@@ -65,7 +65,7 @@ public class ArmorModule
                 {
                     Constructor<?> construct = part.getConstructor(new Class[] {IMaterial.class});
                     items.put(
-                        part.getName() + "_" + material.getClass().getName(),
+                        part.getSimpleName() + "_" + material.getClass().getSimpleName(),
                         new ArmorItem<IPart>((IPart)construct.newInstance(material))
                     );
                 }

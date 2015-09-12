@@ -11,6 +11,6 @@ public abstract class AbstractMaterial
     @Override
     public String getUnlocalizedName ()
     {
-        return this.getClass().getName().toLowerCase();
+        return this.getClass().getSimpleName().toLowerCase();
     }
 }
