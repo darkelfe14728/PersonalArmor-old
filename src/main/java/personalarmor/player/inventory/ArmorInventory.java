@@ -26,6 +26,8 @@ public class ArmorInventory
      */
     private final String name_tag = "PersonalArmorInventory";
     
+    private static final String NBT_SLOT = "Slot";
+    
     /**
      * Inventory size.
      */
@@ -248,7 +250,7 @@ public class ArmorInventory
             if(this.getStackInSlot(slot) != null)
             {
                 NBTTagCompound item = new NBTTagCompound();
-                item.setByte("slot", (byte)slot);
+                item.setByte(NBT_SLOT, (byte)slot);
                 this.getStackInSlot(slot).writeToNBT(item);
                 
                 items.appendTag(item);
@@ -268,7 +270,7 @@ public class ArmorInventory
         for(int item_id = 0; item_id < items.tagCount(); item_id++)
         {
             NBTTagCompound item =  items.getCompoundTagAt(item_id);
-            int slot = item.getByte("slot");
+            int slot = item.getByte(NBT_SLOT);
             if(slot >= 0 && slot < this.getSizeInventory())
                 this.setInventorySlotContents(slot, ItemStack.loadItemStackFromNBT(item));
         }

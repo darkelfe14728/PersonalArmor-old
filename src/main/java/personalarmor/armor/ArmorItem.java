@@ -27,7 +27,11 @@ public class ArmorItem<TPart extends IPart>
         this.setCreativeTab(ArmorModule.tabs.get("armor"));
         this.setUnlocalizedName(PersonalArmor.MODID + ".armor." + part.getUnlocalizedName());
     }
-
+    public Class<? extends IPart> getArmorPartClass ()
+    {
+        return part.getClass();
+    }
+    
     @Override
     public void registerShapedRecipes ()
     {

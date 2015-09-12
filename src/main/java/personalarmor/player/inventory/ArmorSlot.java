@@ -2,7 +2,9 @@ package personalarmor.player.inventory;
 
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import personalarmor.armor.ArmorItem;
 import personalarmor.armor.part.IPart;
 
 /**
@@ -39,7 +41,12 @@ public class ArmorSlot
     @Override
     public boolean isItemValid (ItemStack stack)
     {
-        return type.isAssignableFrom(stack.getItem().getClass());
+        Item item = stack.getItem();
+        
+        if(item instanceof ArmorItem)
+            return type.isAssignableFrom(((ArmorItem<?>)item).getArmorPartClass());
+        
+        return false;
     }
 }
  
