@@ -18,7 +18,13 @@ public class Forearm
     @Override
     protected float getBasePoint ()
     {
-        return 4;
+        return 40;
     }
 
+    @Override
+    public ShapedRecipe[] getShapedRecipes ()
+    {
+        return new ShapedRecipe[] {
+        };
+    }
 }

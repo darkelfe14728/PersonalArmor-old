@@ -18,6 +18,13 @@ public class Arm
     @Override
     protected float getBasePoint ()
     {
-        return 3;
+        return 30;
+    }
+    
+    @Override
+    public ShapedRecipe[] getShapedRecipes ()
+    {
+        return new ShapedRecipe[] {
+        };
     }
 }

@@ -63,17 +63,11 @@ public class ArmorModule
                         new ArmorItem<IPart>((IPart)construct.newInstance(material))
                     );
                 }
-                catch (
-                    NoSuchMethodException | 
-                    SecurityException | 
-                    InvocationTargetException | 
-                    IllegalAccessException | 
-                    InstantiationException 
-                    exception
-                )
-                {
-                    LogHelper.error(exception.getMessage());
-                }
+                catch (NoSuchMethodException     exception) {LogHelper.error(exception.getMessage());}
+                catch (SecurityException         exception) {LogHelper.error(exception.getMessage());}
+                catch (InvocationTargetException exception) {LogHelper.error(exception.getMessage());}
+                catch (IllegalAccessException    exception) {LogHelper.error(exception.getMessage());}
+                catch (InstantiationException    exception) {LogHelper.error(exception.getMessage());}
             }
         }
     }

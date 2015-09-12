@@ -18,6 +18,13 @@ public class Belt
     @Override
     protected float getBasePoint ()
     {
-        return 9;
+        return 90;
+    }
+
+    @Override
+    public ShapedRecipe[] getShapedRecipes ()
+    {
+        return new ShapedRecipe[] {
+        };
     }
 }

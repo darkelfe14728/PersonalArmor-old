@@ -18,6 +18,13 @@ public class Head
     @Override
     protected float getBasePoint ()
     {
-        return 5;
+        return 50;
+    }
+    
+    @Override
+    public ShapedRecipe[] getShapedRecipes ()
+    {
+        return new ShapedRecipe[] {
+        };
     }
 }

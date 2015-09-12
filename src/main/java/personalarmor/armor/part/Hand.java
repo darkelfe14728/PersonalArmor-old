@@ -18,6 +18,13 @@ public class Hand
     @Override
     protected float getBasePoint ()
     {
-        return 2;
+        return 20;
+    }
+    
+    @Override
+    public ShapedRecipe[] getShapedRecipes ()
+    {
+        return new ShapedRecipe[] {
+        };
     }
 }

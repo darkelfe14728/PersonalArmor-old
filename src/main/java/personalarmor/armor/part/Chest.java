@@ -18,7 +18,7 @@ public class Chest
     @Override
     protected float getBasePoint ()
     {
-        return 8;
+        return 80;
     }
     
     @Override
