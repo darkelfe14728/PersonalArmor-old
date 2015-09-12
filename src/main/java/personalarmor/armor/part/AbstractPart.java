@@ -23,9 +23,7 @@ public abstract class AbstractPart
         this.material = material;
     }
     
-    /**
-     * @return Armor part material.
-     */
+    @Override
     public IMaterial getMaterial ()
     {
         return material;

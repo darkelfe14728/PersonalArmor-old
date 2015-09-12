@@ -20,4 +20,23 @@ public class Chest
     {
         return 8;
     }
+    
+    @Override
+    public ShapedRecipe[] getShapedRecipes ()
+    {
+        return new ShapedRecipe[] {
+            new ShapedRecipe()
+            {
+                @Override
+                public String[] getModel ()
+                {
+                    return new String[] {
+                        "1 1",
+                        "111",
+                        "111"
+                    };
+                }
+            }
+        };
+    }
 }

@@ -1,5 +1,9 @@
 package personalarmor.material;
 
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
+
 /**
  * Basic wood.
  *
@@ -22,5 +26,13 @@ public class Wood
     public float getFactorWeight ()
     {
         return 1;
+    }
+    
+    @Override
+    public ItemStack[] getShapedRecipeMaterials ()
+    {
+        return new ItemStack[] {
+            new ItemStack(Blocks.planks, 1, OreDictionary.WILDCARD_VALUE)
+        };
     }
 }

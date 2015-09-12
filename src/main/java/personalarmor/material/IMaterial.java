@@ -1,5 +1,7 @@
 package personalarmor.material;
 
+import net.minecraft.item.ItemStack;
+
 /**
  * A generic material.
  * 
@@ -15,4 +17,6 @@ public interface IMaterial
      * @return Unlocalized name.
      */
     public String getUnlocalizedName ();
+
+    public ItemStack[] getShapedRecipeMaterials ();
 }
