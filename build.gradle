@@ -37,6 +37,9 @@ processResources
 {
 	inputs.property "version", project.version
 	inputs.property "mcversion", project.minecraft.version
+	
+	exclude '**/*.xcf'		// Exclude GIMP images
+	exclude '**/_*/'		// Exclude special folders 
 
     // Replace stuff in mcmod.info, nothing else
     from(sourceSets.main.resources.srcDirs) {
@@ -50,7 +53,6 @@ processResources
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
-    
 }
 
 runClient
