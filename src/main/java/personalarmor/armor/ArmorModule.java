@@ -4,7 +4,6 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map.Entry;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -15,6 +14,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import personalarmor.AbstractModule;
 import personalarmor.IShapedCrafting;
 import personalarmor.LogHelper;
+import personalarmor.RendererRegister;
+import personalarmor.Utils;
 import personalarmor.armor.part.Chest;
 import personalarmor.armor.part.IPart;
 import personalarmor.material.IMaterial;
@@ -35,7 +36,7 @@ public class ArmorModule
     /**
      * List of items.
      */
-    public static final HashMap<String, Item> items = new HashMap<String, Item>(); 
+    public static final ArrayList<Item> items = new ArrayList<Item>();
 
     /**
      * List of armor parts.
@@ -64,10 +65,7 @@ public class ArmorModule
                 try
                 {
                     Constructor<?> construct = part.getConstructor(new Class[] {IMaterial.class});
-                    items.put(
-                        part.getSimpleName() + "_" + material.getClass().getSimpleName(),
-                        new ArmorItem<IPart>((IPart)construct.newInstance(material))
-                    );
+                    items.add(new ArmorItem<IPart>((IPart)construct.newInstance(material)));
                 }
                 catch (NoSuchMethodException     exception) {LogHelper.error(exception.getMessage());}
                 catch (SecurityException         exception) {LogHelper.error(exception.getMessage());}
@@ -82,20 +80,28 @@ public class ArmorModule
     public void preInit (FMLPreInitializationEvent event)
     {
         LogHelper.info("Register " + items.size() + " items");
-        for(Entry<String, Item> item : items.entrySet())
-            GameRegistry.registerItem(item.getValue(), item.getKey());
+        for(Item item : items)
+            GameRegistry.registerItem(item, Utils.getItemName(item));
     }
     @Override
     public void init (FMLInitializationEvent event)
     {
         LogHelper.info("Register shaped recipes");
-        for(Entry<String, Item> item : items.entrySet())
+        for(Item item : items)
         {
-            if(item.getValue() instanceof IShapedCrafting)
-                ((IShapedCrafting)item.getValue()).registerShapedRecipes();
+            if(item instanceof IShapedCrafting)
+                ((IShapedCrafting)item).registerShapedRecipes();
         }
     }
     @Override
     public void postInit (FMLPostInitializationEvent event)
     {}
+
+    @Override
+    public void registerRenderers ()
+    {
+        LogHelper.info("Registring renderers");
+        for(Item item : items)
+            RendererRegister.registerItem(item);
+    }
 }

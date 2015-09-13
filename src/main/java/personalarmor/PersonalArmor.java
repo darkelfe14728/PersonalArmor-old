@@ -103,6 +103,7 @@ public class PersonalArmor
     {
         LogHelper.info("Initialising " + modules.size() + " sub-modules");
         LogHelper.startBlock("Initialization");
+        
         for(Entry<String, AbstractModule> module : modules.entrySet())
         {
             LogHelper.startBlock(module.getKey());
@@ -110,6 +111,9 @@ public class PersonalArmor
                 module.getValue().init(event);
             LogHelper.stopBlock();
         }
+        
+        proxy.registerRenderers();
+        
         LogHelper.stopBlock();
     }
     

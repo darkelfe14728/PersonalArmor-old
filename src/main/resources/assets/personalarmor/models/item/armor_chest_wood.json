@@ -1,0 +1,6 @@
+{
+	"parent":"personalarmor:item/model_armor",
+	"textures": {
+		"layer0":"personalarmor:items/armor/chest_wood"
+	}
+}

@@ -14,4 +14,6 @@ public abstract class AbstractModule
     public void preInit (FMLPreInitializationEvent event) {}
     public void init (FMLInitializationEvent event) {}
     public void postInit (FMLPostInitializationEvent event) {}
+
+    public void registerRenderers () {}
 }
