@@ -1,6 +1,8 @@
 package personalarmor.armor.part;
 
 import personalarmor.material.IMaterial;
+import personalarmor.module.IModule;
+import personalarmor.module.part.IApplicablePartLegUp;
 
 /**
  * Leg up armor part.
@@ -19,6 +21,12 @@ public class LegUp
     protected float getBasePoint ()
     {
         return 30;
+    }
+
+    @Override
+    public boolean moduleIsApplicable (IModule module)
+    {
+        return (module instanceof IApplicablePartLegUp);
     }
     
     @Override

@@ -1,6 +1,8 @@
 package personalarmor.armor.part;
 
 import personalarmor.material.IMaterial;
+import personalarmor.module.IModule;
+import personalarmor.module.part.IApplicablePartHead;
 
 /**
  * Head armor part.
@@ -19,6 +21,12 @@ public class Head
     protected float getBasePoint ()
     {
         return 50;
+    }
+
+    @Override
+    public boolean moduleIsApplicable (IModule module)
+    {
+        return (module instanceof IApplicablePartHead);
     }
     
     @Override

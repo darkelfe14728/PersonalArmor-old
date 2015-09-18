@@ -1,6 +1,8 @@
 package personalarmor.armor.part;
 
 import personalarmor.material.IMaterial;
+import personalarmor.module.IModule;
+import personalarmor.module.part.IApplicablePartBack;
 
 /**
  * Back armor part.
@@ -19,6 +21,12 @@ public class Back
     protected float getBasePoint ()
     {
         return 100;
+    }
+
+    @Override
+    public boolean moduleIsApplicable (IModule module)
+    {
+        return (module instanceof IApplicablePartBack);
     }
     
     @Override

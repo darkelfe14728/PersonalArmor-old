@@ -1,6 +1,7 @@
 package personalarmor.armor.part;
 
 import personalarmor.material.IMaterial;
+import personalarmor.module.IModule;
 
 /**
  * A generic armor part.
@@ -9,6 +10,11 @@ import personalarmor.material.IMaterial;
  */
 public interface IPart
 {
+    /**
+     * Internal class for shaped crafting recipe informations
+     *
+     * @author soludev1
+     */
     public abstract class ShapedRecipe
     {
         /** 
@@ -45,11 +51,33 @@ public interface IPart
      * @return Armor part material.
      */
     public IMaterial getMaterial ();
-
+    
+    /**
+     * @return List of applied modules.
+     */
+    public IModule[] getModules ();
+    /**
+     * Apply a new module to armor part.
+     * Use {@link moduleIsApplicable} to check if module is valid for this armor part
+     * 
+     * @param module The module to apply.
+     */
+    public void addModule (IModule module);
+    /**
+     * Check if a module is applicable to the armor part.
+     * 
+     * @param module The module to check.
+     * @return True if module is applicable, else False.
+     */
+    public boolean moduleIsApplicable (IModule module);
+    
     /**
      * @return Unlocalized name.
      */
     public String getUnlocalizedName ();
 
+    /**
+     * @return List of shaped recipes for armor part.
+     */
     public ShapedRecipe[] getShapedRecipes ();
 }

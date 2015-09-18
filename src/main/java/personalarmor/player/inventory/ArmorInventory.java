@@ -190,7 +190,6 @@ public class ArmorInventory
     {
         return true;
     }
-
     @Override
     public boolean isItemValidForSlot (int slot, ItemStack stack)
     {
@@ -276,25 +275,18 @@ public class ArmorInventory
         }
     }
 
-    
-
-
     @Override
     public void openInventory (EntityPlayer player) {}
-
     @Override
     public void closeInventory (EntityPlayer player) {}
 
-    
     @Override
     public int getField (int id)
     {
         return 0;
     }
-
     @Override
     public void setField (int id, int value){}
-
     @Override
     public int getFieldCount ()
     {

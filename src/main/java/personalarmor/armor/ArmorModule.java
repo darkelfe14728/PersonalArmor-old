@@ -7,6 +7,7 @@ import java.util.HashMap;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -20,6 +21,7 @@ import personalarmor.armor.part.Chest;
 import personalarmor.armor.part.IPart;
 import personalarmor.material.IMaterial;
 import personalarmor.material.Wood;
+import personalarmor.module.event.ModuleEventHandler;
 
 /**
  * Armor sub-module.
@@ -95,7 +97,10 @@ public class ArmorModule
     }
     @Override
     public void postInit (FMLPostInitializationEvent event)
-    {}
+    {
+        LogHelper.info("Register modules event handler");
+        MinecraftForge.EVENT_BUS.register(new ModuleEventHandler());
+    }
 
     @Override
     public void registerRenderers ()

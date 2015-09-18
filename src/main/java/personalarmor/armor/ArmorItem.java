@@ -31,6 +31,11 @@ public class ArmorItem<TPart extends IPart>
     {
         return part.getClass();
     }
+
+    public TPart getPart ()
+    {
+        return part;
+    }
     
     @Override
     public void registerShapedRecipes ()

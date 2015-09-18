@@ -1,6 +1,8 @@
 package personalarmor.armor.part;
 
 import personalarmor.material.IMaterial;
+import personalarmor.module.IModule;
+import personalarmor.module.part.IApplicablePartChest;
 
 /**
  * Chest armor part.
@@ -20,7 +22,13 @@ public class Chest
     {
         return 80;
     }
-    
+
+    @Override
+    public boolean moduleIsApplicable (IModule module)
+    {
+        return (module instanceof IApplicablePartChest);
+    }
+     
     @Override
     public ShapedRecipe[] getShapedRecipes ()
     {

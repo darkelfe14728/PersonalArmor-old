@@ -1,6 +1,8 @@
 package personalarmor.armor.part;
 
 import personalarmor.material.IMaterial;
+import personalarmor.module.IModule;
+import personalarmor.module.part.IApplicablePartBelt;
 
 /**
  * Belt armor part
@@ -21,6 +23,12 @@ public class Belt
         return 90;
     }
 
+    @Override
+    public boolean moduleIsApplicable (IModule module)
+    {
+        return (module instanceof IApplicablePartBelt);
+    }
+    
     @Override
     public ShapedRecipe[] getShapedRecipes ()
     {

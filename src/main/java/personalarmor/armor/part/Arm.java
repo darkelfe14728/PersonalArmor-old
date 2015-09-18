@@ -1,6 +1,8 @@
 package personalarmor.armor.part;
 
 import personalarmor.material.IMaterial;
+import personalarmor.module.IModule;
+import personalarmor.module.part.IApplicablePartArm;
 
 /**
  * Arm armor part.
@@ -19,6 +21,12 @@ public class Arm
     protected float getBasePoint ()
     {
         return 30;
+    }
+    
+    @Override
+    public boolean moduleIsApplicable (IModule module)
+    {
+        return (module instanceof IApplicablePartArm);
     }
     
     @Override

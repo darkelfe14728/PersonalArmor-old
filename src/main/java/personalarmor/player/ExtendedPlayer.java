@@ -1,11 +1,15 @@
 package personalarmor.player;
 
-import personalarmor.player.inventory.ArmorInventory;
+import java.util.ArrayList;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
+import personalarmor.armor.ArmorItem;
+import personalarmor.module.IModule;
+import personalarmor.player.inventory.ArmorInventory;
 
 public class ExtendedPlayer
     implements IExtendedEntityProperties
@@ -62,6 +66,31 @@ public class ExtendedPlayer
     public static final ExtendedPlayer get (EntityPlayer player)
     {
         return (ExtendedPlayer)player.getExtendedProperties(ExtendedPlayer.PROP_NAME);
+    }
+ 
+    /**
+     * Get list of modules (present in any armor part of the player) witch catch the given event.
+     * 
+     * @param event The event type to catch.
+     * @return List of matching modules.
+     */
+    public IModule[] getEventCatchModules (Class<?> event)
+    {
+        ArrayList<IModule> validModules = new ArrayList<IModule>();
+        
+        for(int slot = 0; slot < armorInventory.getSizeInventory(); slot++)
+        {
+            ArmorItem<?> item = (ArmorItem<?>)(armorInventory.getStackInSlot(slot).getItem());
+            IModule[] modules = item.getPart().getModules();
+            
+            for(IModule module : modules)
+            {
+                if(event.isAssignableFrom(module.getClass()))
+                    validModules.add(module);
+            }
+        }
+        
+        return validModules.toArray(new IModule[validModules.size()]);
     }
     
     /**

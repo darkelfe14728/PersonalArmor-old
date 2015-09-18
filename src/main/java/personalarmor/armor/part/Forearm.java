@@ -1,6 +1,8 @@
 package personalarmor.armor.part;
 
 import personalarmor.material.IMaterial;
+import personalarmor.module.IModule;
+import personalarmor.module.part.IApplicablePartForearm;
 
 /**
  * Forearm armor part.
@@ -21,6 +23,12 @@ public class Forearm
         return 40;
     }
 
+    @Override
+    public boolean moduleIsApplicable (IModule module)
+    {
+        return (module instanceof IApplicablePartForearm);
+    }
+    
     @Override
     public ShapedRecipe[] getShapedRecipes ()
     {
